@@ -5,12 +5,15 @@ import edu.knoldus.User
 class OperationOnUser {
 
   def register(userList: List[User], newUser: User): List[User] = {
-    userList match {
-      case user :: userOldList if user.mobileNumber == newUser.mobileNumber  => throw new Exception("Enter different mobile Number")
-      case user :: userOldList if user.userName == newUser.userName  => throw new Exception("Enter different UserName")
-      case user :: userOldList if user.userName != newUser.userName && user.mobileNumber != newUser.mobileNumber => register(userOldList, user)
-      case Nil => newUser :: userList
+    def storeUser(userInnerList: List[User], newUser: User): List[User] = {
+      userInnerList match {
+        case user :: userOldList if user.userName != newUser.userName && user.mobileNumber != newUser.mobileNumber => storeUser(userOldList, newUser)
+        case user :: _ if user.mobileNumber == newUser.mobileNumber => throw new Exception("Enter different mobile Number")
+        case user :: _ if user.userName == newUser.userName => throw new Exception("Enter different UserName")
+        case Nil => userList ::: List(newUser)
+      }
     }
+   storeUser(userList, newUser)
   }
 
   def authenticate(userList: List[User], userName: String, password: String): Int = {
