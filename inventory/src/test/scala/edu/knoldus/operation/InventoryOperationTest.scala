@@ -1,5 +1,6 @@
 package edu.knoldus.operation
 
+import edu.knoldus.InventoryOperation
 import edu.knoldus.util.{Inventory, Product}
 import org.scalatest.FlatSpec
 
@@ -8,6 +9,7 @@ class InventoryOperationTest extends FlatSpec{
   val productId2 = 124
   val productId3 = 125
   val productId4 = 126
+  val productId5 = 127
   val productName1 = "Lux"
   val productName2 = "Ultra Blends"
   val productName3 = "shirt"
@@ -43,6 +45,7 @@ class InventoryOperationTest extends FlatSpec{
 
   "updateInventory method" should "return updated list" in {
     assertThrows[Exception](managementObject.updateInventory(inventoryList,productId1, orderCount))
+    assertThrows[Exception](managementObject.updateInventory(inventoryList,productId5, orderCount))
     assert(managementObject.updateInventory(inventoryList,productId1, count) == inventoryList2 )
   }
 

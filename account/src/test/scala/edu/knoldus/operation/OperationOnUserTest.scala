@@ -27,10 +27,10 @@ class OperationOnUserTest extends FlatSpec {
 
   val operationObject = new OperationOnUser
 
-  print(userList)
 
   "register user " should "add user and give a new List" in {
     assertThrows[Exception](operationObject.register(userList, user3))
+    assertThrows[Exception](operationObject.register(userList, User(userName1, password3, mobileNumber4)))
     assert(operationObject.register(userList, user4) == userList ::: List(user4) )
   }
 

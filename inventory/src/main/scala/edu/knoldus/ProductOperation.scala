@@ -1,4 +1,4 @@
-package edu.knoldus.operation
+package edu.knoldus
 
 import edu.knoldus.util.{Product, ProductTrait}
 
@@ -35,7 +35,7 @@ class ProductOperation extends ProductTrait {
   def sortByRating(itemList: List[Product], typeOfSort: String): List[Product] = {
     typeOfSort match {
       case "incr" => itemList.sortWith((x,y)=> x.rating < y.rating)
-      case "decr" => itemList.sortWith((x,y)=> x.rating < y.rating)
+      case "decr" => itemList.sortWith((x,y)=> x.rating > y.rating)
     }
   }
 }

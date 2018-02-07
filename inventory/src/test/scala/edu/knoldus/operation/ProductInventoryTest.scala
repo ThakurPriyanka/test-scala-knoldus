@@ -1,5 +1,6 @@
 package edu.knoldus.operation
 
+import edu.knoldus.ProductOperation
 import edu.knoldus.util.Product
 import org.scalatest.FlatSpec
 
@@ -26,7 +27,8 @@ class ProductInventoryTest extends FlatSpec {
   val rating4 = 5
   val newCount = 0
   val orderCount = 6
-  val sortType = "incr"
+  val sortType1 = "incr"
+  val sortType2 = "decr"
   val  soap = new Product(productId1, productName1, category1 , price1, rating1)
   val  soap2 = new Product(productId2, productName1,category1, price2, rating2)
   val shampoo = new Product(productId3,productName2 ,category1, price3, rating3)
@@ -45,10 +47,12 @@ class ProductInventoryTest extends FlatSpec {
     assert(managementObject.searchByCategory(productList,category2) == List(shirt))
   }
   "sortByPrice method" should "return the item that match it" in {
-    assert(managementObject.sortByPrice(productList,sortType) == List(shirt, shampoo, soap, soap2))
+    assert(managementObject.sortByPrice(productList,sortType1) == List(shirt, shampoo, soap, soap2))
+    assert(managementObject.sortByPrice(productList,sortType2) == List(soap2,soap, shampoo, shirt))
   }
 
   "sortByRating method" should "return the item that match it" in {
-    assert(managementObject.sortByRating(productList,sortType) == List(shampoo, soap, soap2, shirt))
+    assert(managementObject.sortByRating(productList,sortType1) == List(shampoo, soap, soap2, shirt))
+    assert(managementObject.sortByRating(productList,sortType2) == List(shirt, soap2, soap, shampoo))
   }
 }

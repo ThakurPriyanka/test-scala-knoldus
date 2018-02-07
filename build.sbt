@@ -31,7 +31,7 @@ lazy val account = (project in file("account"))
   .settings(
     commonSettings
   )
-lazy val checkout = (project in file("checkout"))
+lazy val checkout = (project in file("knolkart-checkout"))
   .settings(
     commonSettings
   ).aggregate(inventory).dependsOn(inventory)

@@ -1,7 +1,7 @@
 package edu.knoldus
 
 
-import edu.knoldus.operation.{InventoryOperation, OperationOnUser, ProductOperation}
+import edu.knoldus.operation.OperationOnUser
 import edu.knoldus.util.{InventoryTrait, OperationOfUser, ProductTrait}
 
 trait Creator {
