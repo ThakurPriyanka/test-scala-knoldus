@@ -1,6 +1,6 @@
 package edu.knoldus.operation
 
-import edu.knoldus.User
+import edu.knoldus.util.User
 import org.scalatest.FlatSpec
 
 class OperationOnUserTest extends FlatSpec {

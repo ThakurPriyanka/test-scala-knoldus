@@ -1,4 +1,4 @@
-package edu.knoldus
+package edu.knoldus.util
 
 case class User(userName: String, password: String, mobileNumber: String) {
   override def toString(): String = {
